@@ -1,209 +1,237 @@
+ // Variables
+ $colorBlanco: #F2F2F2;
+ $colorNegro: #1B1B1B;
+ $colorVerdeSalvia: #6F7C65;
+ $colorArena: #DCD6CE;
+
+
+ // Mixins  
+ @mixin displayFlex($justifyContent, $alignItems) {
+     justify-content: $justifyContent;
+     align-items: $alignItems;
+ }
+
+ @mixin paddingMargin($padding, $margin) {
+     padding: $padding;
+     margin: $margin;
+ }
+
+ .button {
+     background-color: $colorBlanco;
+     border: none;
+     padding: 1rem 2rem;
+     border-radius: 0.5rem;
+     font-weight: bold;
+
+     &:hover {
+         transform: translateY(-2px);
+         opacity: 0.8;
+        
+     }
+ }
+
  /**Reset**/
-* {
-    font-family: "Merriweather Sans", sans-serif; /**Se agrega "sans-serif" por si falla la primera**/
+ * {
+     font-family: "Merriweather Sans", sans-serif;
+     /**Se agrega "sans-serif" por si falla la primera**/
 
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
 
-.colorBlanco {
-    color: #fff;
-}
-
-
-.oscurecerFondo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(0 0 0 / 0.8)  
-}
-/**Header**/
-.indexHeader {
-    background-image: url(./img/escritorio1.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
-    position: relative;
-}
-.indexHeader h1, .indexHeader h2, .indexHeader p {
-    color: #fff;
-    text-align: center;
-}
+ .colorBlanco {
+     color: $colorBlanco;
+ }
 
 
+ .oscurecerFondo {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-color: rgb(0 0 0 / 0.8)
+ }
 
-.indexHeader_contenedorInferior {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-    gap: 1rem;
-    padding: 0 2rem;
+ /**Header**/
+ .indexHeader {
+     background-image: url(../img/escritorio1.jpg);
+     background-size: cover;
+     background-repeat: no-repeat;
+     height: 100vh;
+     position: relative;
+ }
 
-    height: 100vh;
-
-}
-
-.indexHeader_contenedorInferior h2 {
-    font-family: "Merriweather";
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.indexHeader_contenedorInferior h1 {
-    font-size: 2rem;
-    font-weight: bold;
-}
-
-.indexHeader_contenedorInferior p { /**italic**/
-    font-weight: 300;
-    font-style: italic;
-    color: #fff;
-    
-} 
-
-.indexHeader_contenedorInferior button{
-    background-color: #ebebeb;
-    border: none;
-    padding: 1rem 2rem; 
-    border-radius: 0.5rem;
-
-    font-weight: bold;
-}
-
-/**MAIN**/
-indexMain_contenedorSuperior{
-    margin: 2rem 0;
-}
-.indexMain_QuienesSomos{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    color: #101010;
-    gap: 1rem;
-    padding: 1rem;
-    margin: 2rem 0;
-}
-
-.indexMain_QueHacemos {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    color: #101010;
-    gap: 1rem;
-    padding: 1rem;
-    margin: 2rem 0;
-}
-
-.indexMain_ComoTrabajamos {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    color: #101010;
-    gap: 1rem;
-    padding: 1rem;
-    margin: 2rem 0; 
-}
-
-.indexMain_contenedorServicios {
-    background-color: #2e2e2e;
-    padding: 2rem 1rem;
-    color: #fff
-    
-}
-
-.indexMain_contenedorServicios button {
-    background-color: #ebebeb;
-    border: none;
-    padding: 1rem 2rem; 
-    border-radius: 0.5rem;
-
-    font-weight: bold;
-
-}
+ .indexHeader h1,
+ .indexHeader h2,
+ .indexHeader p {
+     color: $colorBlanco;
+     text-align: center;
+ }
 
 
-.indexMain_cardServicios {
-    background-color: #8a8a8a;
-    display: flexbox;
-    justify-content: flex-start;
-    gap: 2rem;
-    padding: 1rem;
-    margin: 1rem 0;
 
-    color: #fff;
-}
+ .indexHeader_contenedorInferior {
+     display: flex;
+     flex-direction: column;
+     @include displayFlex(center, center);
+     gap: 1rem;
+     padding: 0 2rem;
 
-.indexMain_cardServicios p{
-    font-size: 12px;
-}
+     height: 100vh;
+
+ }
+
+ .indexHeader_contenedorInferior h2 {
+     font-family: "Merriweather";
+     font-size: 1.5rem;
+     font-weight: bold;
+ }
+
+ .indexHeader_contenedorInferior h1 {
+     font-size: 2rem;
+     font-weight: bold;
+ }
+
+ .indexHeader_contenedorInferior p {
+     /**italic**/
+     font-weight: 300;
+     font-style: italic;
+     color: $colorBlanco;
+
+ }
+
+ .indexHeader_contenedorInferior button {
+     @extend .button;
+ }
+
+ /**MAIN**/
+ indexMain_contenedorSuperior {
+     margin: 2rem 0;
+ }
+
+ .indexMain_QuienesSomos {
+     display: flex;
+     flex-direction: column;
+
+     @include displayFlex(flex-start, flex-start);
+     color: $colorNegro;
+     gap: 1rem;
+     @include paddingMargin(1rem, 2rem 0);
+ }
+
+ .indexMain_QueHacemos {
+     display: flex;
+     flex-direction: column;
+     @include displayFlex(flex-start, flex-start);
+     color: $colorNegro;
+     gap: 1rem;
+     @include paddingMargin(1rem, 2rem 0);
+
+ }
+
+ .indexMain_ComoTrabajamos {
+     display: flex;
+     flex-direction: column;
+     @include displayFlex(flex-start, flex-start);
+     color: $colorNegro;
+     gap: 1rem;
+     @include paddingMargin(1rem, 2rem 0);
+
+ }
+
+ .indexMain_contenedorServicios {
+    background-color: $colorVerdeSalvia;
+     padding: 2rem 1rem;
+     color: $colorBlanco;
+
+ }
+
+ .indexMain_contenedorServicios button {
+     @extend .button;
+     align-content: center;
+
+ }
 
 
-.indexMain_AcordionPorQueElegirnos{
-    background-image: url(./img/cuaderno2.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    height:90vh;
-    position: relative;
-    padding: 3rem 2rem;
+ .indexMain_cardServicios {
+     background-color: $colorArena;
+     display: flexbox;
+     justify-content: flex-start;
+     gap: 2rem;
+     @include paddingMargin(1rem, 1rem 0);
 
-    color: #fff;
-}
+     color: $colorNegro;
+ }
 
-.indexMain_AcordionPorQueElegirnos p{
-    font-size: 16px;
-}
-/**MediaQueries INDEX**/
-/**Tablet**/
-@media (min-width: 500px) {
-    .indexHeader_contenedorInferior {
-        width: 70%;
-        margin: 0 auto;
-    }
-} 
+ .indexMain_cardServicios p {
+     font-size: 12px;
+ }
 
 
-/**Desktop**/
-@media (min-width: 800px) {
-    .indexHeader_contenedorInferior {
-        align-items: flex-start;
-        width: 70%;
-        margin: 0 auto;
-    }
-    .indexHeader p {
-        text-align: left; 
-    }
-    .indexHeader_contenedorInferior button{
-        align-self: center;
-    }
+ .indexMain_AcordionPorQueElegirnos {
+     background-image: url(../img/cuaderno2.jpg);
+     background-size: cover;
+     background-repeat: no-repeat;
+     height: 90vh;
+     position: relative;
+     padding: 3rem 2rem;
+
+     color: $colorBlanco;
+ }
+
+ .indexMain_AcordionPorQueElegirnos p {
+     font-size: 16px;
+ }
+
+ /**MediaQueries INDEX**/
+ /**Tablet**/
+ @media (min-width: 500px) {
+     .indexHeader_contenedorInferior {
+         width: 70%;
+         margin: 0 auto;
+     }
+ }
 
 
-    .indexMain_contenedorServicios {
-        height: 100%;
-    }
-    .indexMain_cardServicios {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 1rem;
-        padding: 2rem 8rem;
-    }
+ /**Desktop**/
+ @media (min-width: 800px) {
+     .indexHeader_contenedorInferior {
+         align-items: flex-start;
+         width: 70%;
+         margin: 0 auto;
+     }
 
-    .indexMain_AcordionPorQueElegirnos{
-    background-image: url(./img/cuaderno2.jpg);
-    background-size: cover;
-    background-repeat: repeat;
-    height:100vh;
-    width: 100%;
-    padding: 2rem 15rem;
+     .indexHeader p {
+         text-align: left;
+     }
 
-    color: #fff;
-}
-}
+     .indexHeader_contenedorInferior button {
+         align-self: center;
+     }
+
+
+     .indexMain_contenedorServicios {
+         height: 100%;
+     }
+
+     .indexMain_cardServicios {
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: space-between;
+         gap: 1rem;
+         padding: 2rem 8rem;
+     }
+
+     .indexMain_AcordionPorQueElegirnos {
+         background-image: url(../img/cuaderno2.jpg);
+         background-size: cover;
+         background-repeat: repeat;
+         height: 100vh;
+         width: 100%;
+         padding: 2rem 15rem;
+
+         color: $colorBlanco;
+     }
+ }
